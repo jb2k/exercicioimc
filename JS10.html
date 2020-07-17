@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 04</title>
+    <style>
+        body{
+            font-family: Arial;
+        }
+
+        h1{
+            color: #000000;
+        }
+
+        form{
+            width: 500px;
+            border: 3px solid #404dff;
+            border-radius: 10px;
+            background-color: #ffffff;
+        }
+        h2{
+            color: #000000;
+        }
+        input{
+            width: 80%;
+            margin-bottom: 20px;
+            padding: 6px;
+            text-align: center;
+            border-radius: 5px;
+        }
+        input::placeholder{
+            color: #000000;
+            font-weight: bold;
+        }
+
+        input:hover{
+            border: 3px solid #1c1c1c;
+        }
+
+        button{
+            width: 220px;
+            padding: 7px;
+            margin-bottom: 30px;
+            background-color: #ffffff;
+            font-weight: bold;
+            color: rgb(0, 0, 0);
+            border: 2px solid #404dff;
+            border-radius: 5px;
+        }
+
+        button:hover{
+            background-color: #404dff;
+            border: 2px solid black;
+            cursor: pointer;
+        }
+
+        table{
+            padding: 10px;
+            text-align: center;
+        }
+
+        div.div_form{
+            display: flex;
+        }
+
+        div.div_input1{
+            text-align: center;
+            width: 50%;  
+        }
+
+        div.div_input2{
+            width: 50%;  
+        }
+
+        .input-imc{
+            width: 456px;
+        }
+
+        table{
+            margin: auto;
+        }
+
+        th{
+            color: #ebeff3;
+            background: #2e86de;
+            width: 200px;
+            border-radius: 3px;
+        }
+
+        td{
+            width: 200px;
+            border-radius: 3px;
+        }
+        
+    </style>
+</head>
+<body>
+    <center>
+    <h1>Exercicio 04</h1>
+    <br><br>
+    <form action="exercicio.html" method="POST">
+
+        <h2>Cálculo do IMC</h2>
+        <br><br>
+        <div class="div_form">
+            <div class="div_input1">
+                <label>Altura</label>
+                <input type="text" id="altura" placeholder="Metros" required>
+            </div>
+            <div class="div_input2">
+                <label>Peso</label>
+                <input type="text" id="peso" placeholder="Quilos" required>
+            </div>
+        </div>
+        <div class="div_form">
+            <div class="div_input1">
+                <button type="reset">Limpar</button>
+            </div>
+            <div class="div_input2">    
+                <button type="button" onclick=Calcular()>Calcular</button>
+            </div>
+        </div>
+        <div>
+                <input type="number" id="imc" class="input-imc" placeholder="IMC" readonly>
+        </div>
+        
+
+        <table>
+            <tr >
+                <th>IMC</th>
+                <th>Classificação</th>
+                <th>Obesidade</th>
+            </tr>
+            <tr>
+                <td>Menor que 18.5</td>
+                <td>Magreza</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Entre 18.5 e 24.9</td>
+                <td>Normal</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Entre 25.0 e 29.9</td>
+                <td>Sobrepeso</td>
+                <td>I</td>
+            </tr>
+            <tr>
+                <td>Entre 30.0 e 39.9</td>
+                <td>Obesidade</td>
+                <td>II</td>
+            </tr>
+            <tr>
+                <td>Maior que 40.0</td>
+                <td>Obesidade grave</td>
+                <td>III</td>
+            </tr>
+        </table>
+
+    </form>
+    </center>
+    
+    <script type="text/javascript">
+
+      function Calcular(){
+          let altura = document.getElementById('altura').value
+          let peso = document.getElementById('peso').value
+          let imc = peso/(altura*altura)
+
+          if(altura.lengh == 0 || peso.lengh == 0){
+            alert('Preencha todos os campos')
+          }
+          else{ 
+            let resultado = document.getElementById('imc')
+            resultado.value = imc.toFixed(2)
+          }
+      }
+
+        </script>
+
+</body>
+</html>
